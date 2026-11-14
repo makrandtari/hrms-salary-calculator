@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card mt-5">
+                   <div class="card-body">
+                        <h3 class="text-center">hrms employee salary finder </h3>
+
+                        <%=form_with url: employee_salary_index_path, method: :get do |f| %>
+                        <%=f.label :employee_name, class: "form-group col-md-6" %>
+                        <%=f.text_field :employee_name, class: "form-control" %>
+                        <%=f.label :monthly_salary, class: "form-group col-md-6" %>
+                        <%=f.text_field :monthly_salary, class: "form-control" %>
+
+
+                        <%=f.label :working_days, class: "form-group col-md-6" %>
+                        <%=f.text_field :working_days, class: "form-control" %>
+
+                        <%=f.label :present_days, class: "form-group col-md-6" %>
+                        <%=f.text_field :present_days, class: "form-control" %>
+                        <%=f.submit "Calculate Salary", class: "btn btn-primary mt-4" %>
+                        <%end%>
+                        <% if @calculated_salary.present? %>
+                            <div class="alert alert-success mt-4">
+                                <strong>Calculated Salary:</strong> <%= @calculated_salary %>
+                            </div>
+                        <% end %>
+                   </div>
+            </div>
+        </div>
+    </div>
+</div>
